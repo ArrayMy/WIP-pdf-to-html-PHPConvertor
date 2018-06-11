@@ -1,2 +1,2 @@
 # WIP-pdf-to-html-PHPConvertor
-Presentation to HTML converter.
+Presentation to HTML converter
