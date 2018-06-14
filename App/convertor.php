@@ -12,15 +12,17 @@ class PDF_Convertor{
  
  public function check_file(){
   $this->PDF = pdf_new();
-  if(!pdf_open_file($this->PDF,'$this->CONFIG_PDF_FILE')){
+  if(pdf_open_pdi_document($this->PDF,'$this->CONFIG_PDF_FILE['PDF_INFO']['PDF_FILE_NAME']')===false){
    print error;
    exit;
   }else{
-   
+   $this->info_file();
   }
  }
   
-
+  public function info_file(){
+   
+  }
 }
 
 
