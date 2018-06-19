@@ -8,13 +8,16 @@ class PDF_Convertor{
  }
 	
 	/*PDF CONVERTOR SITE*/
-	public function PDF_Convertor_Controler($file){
-		
+	public function PDF_Convertor_Controler($Filename,$Path){
+		$this->PDF_Convertor_Read($Filename,$Path);
 		
 	}
 	
-	public function PDF_Convertor_Read($file){
-		file_get_contents
+	public function PDF_Convertor_Read($Filename,$Path){
+		$File_Input = $Path;
+		$File_Input .= $Filename;
+		$this->file_open = file_get_contents($File_Input,FILE_BINARY);
+		print_r($this->file_open);
 	}
 	
 	
@@ -73,16 +76,14 @@ class PDF_Convertor{
  public function check_file(){
 	 session_start();
 	 if(isset($_GET['file']) and isset($_SESSION['SECURITY']) and $_GET['file']==$_SESSION['SECURITY']){
-  
+       $this->PDF_Convertor_Controler($_GET['file'],"http://arraymy.tk/files/");
   }else{
+	   $this->PDF_Convertor_Controler($_GET['file'],"http://arraymy.tk/files/");
    /*CALL PDF CONVERT*/
   }
- }
 	 session_destroy();
  }
+	 
+ }
   
- 
-}
-
-
 ?>
